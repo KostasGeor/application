@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Delaer Tool - Report Generator</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./img/core-img/favicon.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styling.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='general_styles_alllls.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navigation_styling.css') }}">
+
+</head>
+
+<body>
+
+
+<!-- Header Area Start -->
+<header class="header-area">
+    <!-- Top Header Area Start -->
+    <div class="top-header-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <div class="top-header-content">
+                        <img src="../static/img/logo.png" style="margin-left: -20px;">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="top-header-content">
+                         <img  style="width: 300px;" src="../static/img/banner-horizontal-white300ppi.png">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Top Header Area End -->
+
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off " style="background-color: #1c66de">
+            <div class="container">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="hamiNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="index.html"><img src="./img/core-img/logo.png" alt=""></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+                        <!-- Menu Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul id="nav">
+                                <li><a href="{{ url_for('hello_world') }}">Home</a></li>
+                                <li><a href="{{ url_for('management') }}">Mission Management</a></li>
+                                <li><a href="{{ url_for('flightmap') }}">Flight Map</a></li>
+                                <li><a href="{{ url_for('graphs') }}">Graphs & Statistis</a></li>
+                                <li><a href="{{ url_for('dbqueries') }}">Database Queries</a></li>
+                                <li><a href="{{ url_for('mltool') }}">Machine Learning Tool</a></li>
+                                <li class="active"><a href="{{ url_for('reports') }}">Reports</a></li>
+                            </ul>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Area End -->
+
+
+
+<!-- Team Area Start -->
+
+<!-- Testimonial Area Start -->
+<section class="hami-testimonial-area section-padding-0-100" style="padding-top: 30px;">
+    <div class="container">
+        <div class="row">
+            <!-- Section Heading -->
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h2>Generate a Report for your data</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="position: fixed;
+        top: 50%;
+        left: 45%;
+        margin-left: -100px;
+        text-align:center;">
+                <button style="margin-right: 10px;padding:25px;">Preview Report</button>
+                <button style="padding:25px;">Generate Report</button>
+        </div>
+
+    </div>
+</section>
+<!-- Testimonial Area End -->
+
+<!-- Support Area Start -->
+
+<!-- Support Area End -->
+
+<!-- Call To Action Area Start -->
+
+<!-- Call To Action Area End -->
+
+<!-- Footer Area Start -->
+<footer class="footer-area" style="padding-top: 300px;">
+
+
+    <!-- Bottom Footer Area -->
+    <div class="bottom-footer-area bg-gray">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6">
+                    <!-- Copywrite Text -->
+                    <div class="copywrite-text">
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                                                                aria-hidden="true"></i> by <a
+                                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Area End -->
+
+<!-- **** All JS Files ***** -->
+<!-- jQuery 2.2.4 -->
+<script src="js/jquery.min.js"></script>
+<!-- Popper -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- All Plugins -->
+<script src="js/hami.bundle.js"></script>
+<!-- Active -->
+<script src="js/default-assets/active.js"></script>
+
+</body>
+
+</html>

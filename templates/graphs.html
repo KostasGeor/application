@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Delaer Tool - Graphs</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./img/core-img/favicon.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styling.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='general_styles_alllls.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navigation_styling.css') }}">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+
+<!-- Header Area Start -->
+<header class="header-area">
+    <!-- Top Header Area Start -->
+    <div class="top-header-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <div class="top-header-content">
+                        <img src="../static/img/logo.png" style="margin-left: -20px;">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="top-header-content">
+                        <img style="width: 300px;" src="../static/img/banner-horizontal-white300ppi.png">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Top Header Area End -->
+
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off " style="background-color: #1c66de">
+            <div class="container">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="hamiNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="index.html"><img src="./img/core-img/logo.png" alt=""></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+                        <!-- Menu Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul id="nav">
+                                <li><a href="{{ url_for('hello_world') }}">Home</a></li>
+                                <li><a href="{{ url_for('management') }}">Mission Management</a></li>
+                                <li><a href="{{ url_for('flightmap') }}">Flight Map</a></li>
+                                <li class="active"><a href="{{ url_for('graphs') }}">Graphs & Statistics</a></li>
+                                <li><a href="{{ url_for('dbqueries') }}">Database Queries</a></li>
+                                <li><a href="{{ url_for('mltool') }}">Machine Learning Tool</a></li>
+                                <li><a href="{{ url_for('reports') }}">Reports</a></li>
+                            </ul>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Area End -->
+
+
+<!-- Team Area Start -->
+<section class="hami-team-area mb-70 bg-gray">
+    <div class="container">
+        <div class="row">
+            <!-- Section Heading -->
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h2 style="margin-top: 40px;">Which graph would you like?</h2>
+                    <p>Choose the appropriate graph and setup for the data.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Single Team Member Area -->
+            <div class="col-12 col-sm-6">
+                <div class="single-team-member-area d-flex align-items-center mb-30" onclick="addParameters('1')">
+                    <!-- Team Thumbnail -->
+                    <div class="team-thumbnail">
+                        <img src="../static/img/areachart.png" alt="" style="width: 120px;">
+                    </div>
+                    <!-- Team Content -->
+                    <div class="team-content">
+                        <h5>Area Chart</h5>
+                        <p>Useful for presenting area coverage and space measures.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Team Member Area -->
+            <div class="col-12 col-sm-6">
+                <div class="single-team-member-area d-flex align-items-center mb-30" onclick="addParameters('2')">
+                    <!-- Team Thumbnail -->
+                    <div class="team-thumbnail">
+                        <img src="../static/img/linechart.png" alt="">
+                    </div>
+                    <!-- Team Content -->
+                    <div class="team-content">
+                        <h5>Linechart</h5>
+                        <p>Practical for simulating evolution in time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Team Member Area -->
+            <div class="col-12 col-sm-6">
+                <div class="single-team-member-area d-flex align-items-center mb-30" onclick="addParameters('3')">
+                    <!-- Team Thumbnail -->
+                    <div class="team-thumbnail">
+                        <img src="../static/img/barplot.png" alt="">
+                    </div>
+                    <!-- Team Content -->
+                    <div class="team-content">
+                        <h5>Barplot</h5>
+                        <p>Particularly useful for plotting quantitative variables.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Team Member Area -->
+            <div class="col-12 col-sm-6">
+                <div class="single-team-member-area d-flex align-items-center mb-30" onclick="addParameters('4')">
+                    <!-- Team Thumbnail -->
+                    <div class="team-thumbnail">
+                        <img src="../static/img/polar.png" alt="">
+                    </div>
+                    <!-- Team Content -->
+                    <div class="team-content">
+                        <h5>Radar Chart</h5>
+                        <p>Quite handy for presenting multivariate problems (e.g a mission's parameters).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function () {
+                $('.single-team-member-area').click(function () { // when a .myDiv is clicked
+                    $('.single-team-member-area').not(this).removeClass('activated')
+                    $('.single-team-member-area').not(this).css('border', '')
+                    $(this).toggleClass('activated')
+                    $(this).css('border', 'solid 1px #1c66de')
+
+                })
+            })
+
+            function addParameters(id) {
+
+                if (id === '1') {
+                    var x = document.getElementById("select_params");
+                    var i, L = x.options.length - 1;
+                    for (i = L; i >= 0; i--) {
+                        x.remove(i);
+                    }
+                    var option = document.createElement("option");
+                    option.text = "Height";
+                    x.add(option);
+                }
+
+                if (id === '2') {
+                    var x = document.getElementById("select_params");
+                    var i, L = x.options.length - 1;
+                    for (i = L; i >= 0; i--) {
+                        x.remove(i);
+                    }
+                    var option = document.createElement("option");
+                    option.text = "Weight";
+                    x.add(option);
+                }
+                if (id === '3') {
+                    var x = document.getElementById("select_params");
+                    var i, L = x.options.length - 1;
+                    for (i = L; i >= 0; i--) {
+                        x.remove(i);
+                    }
+                    var option = document.createElement("option");
+                    option.text = "Speed";
+                    x.add(option);
+                }
+                if (id === '4') {
+                    var x = document.getElementById("select_params");
+                    var i, L = x.options.length - 1;
+                    for (i = L; i >= 0; i--) {
+                        x.remove(i);
+                    }
+                    var option = document.createElement("option");
+                    option.text = "AOA";
+                    x.add(option);
+                }
+            }
+
+        </script>
+    </div>
+</section>
+<!-- Team Area End -->
+
+<!-- Testimonial Area Start -->
+<section class="hami-testimonial-area section-padding-0-100">
+    <div class="container">
+        <div class="row">
+            <!-- Section Heading -->
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h2>On what data?</h2>
+                    <p>Please enter the Id of the mission and select the variables you want to plot.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Section Heading -->
+            <div class="col-6">
+                <div class="section-heading text-center">
+                    <form id="mission_id" action="/api/getMissionCoords" method="POST">
+                        <div class="form-group">
+                            <label for="email">Mission ID:</label>
+                            <input name="mission_id" type="text" class="form-control" id="mission_id">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-6">
+                <div id="parameters" class="section-heading text-center" style="margin-top: 31px;">
+                    <form action="/action_page.php">
+                        <select style="margin-left: 20px;" class="form-control" id="select_params">
+                            <option>Height</option>
+                            <option>Speed</option>
+                            <option>Altitude</option>
+                            <option>AOA</option>
+                            <option>Horizon</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Footer Area Start -->
+<footer class="footer-area section-padding-80-0">
+
+
+    <!-- Bottom Footer Area -->
+    <div class="bottom-footer-area bg-gray">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6">
+                    <!-- Copywrite Text -->
+                    <div class="copywrite-text">
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                                                                aria-hidden="true"></i> by <a
+                                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Area End -->
+
+<!-- **** All JS Files ***** -->
+<!-- jQuery 2.2.4 -->
+<script src="js/jquery.min.js"></script>
+<!-- Popper -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- All Plugins -->
+<script src="js/hami.bundle.js"></script>
+<!-- Active -->
+<script src="js/default-assets/active.js"></script>
+
+</body>
+
+</html>

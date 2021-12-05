@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Delaer Tool - Mission Management</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./img/core-img/favicon.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styling.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='general_styles_alllls.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navigation_styling.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+<!-- Header Area Start -->
+<header class="header-area">
+    <!-- Top Header Area Start -->
+    <div class="top-header-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <div class="top-header-content" style="margin-left: -20px;">
+                        <img src="../static/img/logo.png">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="top-header-content">
+                        <div class="dropdown">
+                            <img style="width: 300px;" src="../static/img/banner-horizontal-white300ppi.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <!-- Top Header Area End -->
+
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off" style="background-color: #1c66de">
+            <div class="container">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="hamiNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="index.html"><img src="./img/core-img/logo.png" alt=""></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+                        <!-- Menu Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul id="nav">
+                                <li><a href="{{ url_for('hello_world') }}">Home</a></li>
+                                <li class="active"><a href="{{ url_for('management') }}">Mission Management</a></li>
+                                <li><a href="{{ url_for('flightmap') }}">Flight Map</a></li>
+                                <li><a href="{{ url_for('graphs') }}">Graphs & Statistics</a></li>
+                                <li><a href="{{ url_for('dbqueries') }}">Database Queries</a></li>
+                                <li><a href="{{ url_for('mltool') }}">Machine Learning Tool</a></li>
+                                <li><a href="{{ url_for('reports') }}">Reports</a></li>
+                            </ul>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Area End -->
+<!-- Price Plan Area Start -->
+<section class="hami-price-plan-area section-padding-100 bg-gray">
+    <div class="container">
+        <div class="row">
+            <!-- Section Heading -->
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h2>In the form below, enter the data you wish to save.</h2>
+                    <p>Press Submit to insert data in the database or Cancel to empty the form.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <form id="mission_data" action="/api/insertMissionData" method="POST" >
+                    <div class="form-group">
+                        <label for="email">Mission ID:</label>
+                        <input type="text" class="form-control" name="mission_id" id="mission_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Departure Point:</label>
+                        <input type="text" class="form-control" name="d_point" id="d_point">
+                    </div>
+                    <div class="row">
+                        <div class="form-inline col-9" id="midway">
+                            <div class="form-group" id="point">
+                                <label style="margin-right: 20px;" for="pwd">Midway Point:</label>
+                                <input type="text" class="form-control" name="m_point" id="m_point">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                             <button id="add_button_midway" style="border-radius: 50px;margin-left: 20px;" class="btn_add"><i
+                                    class="fa fa-plus">
+                            </i></button>
+                            <button id="remove_button_midway" style="border-radius: 50px;margin-left: 20px;"
+                                    class="btn_remove"><i
+                                    class="fa fa-minus">
+                            </i></button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pwd">Arrival Point:</label>
+                        <input type="text" class="form-control" name="a_point" id="a_point">
+                    </div>
+                    <div class="row">
+                        <div class="form-inline col-10" id="equip">
+                            <div id="items" class="form-group">
+                                <label for="sel1">Equipment:</label>
+                                <select style="margin-left: 20px;" class="form-control" name="sel1" id="sel1">
+                                    <option>life boat</option>
+                                    <option>oxygen bottles</option>
+                                    <option>life raft</option>
+                                    <option>emergency bags</option>
+                                    <option>stretchers</option>
+                                    <option>life jacket</option>
+                                    <option>air dropable liferafts</option>
+                                    <option>equipment</option>
+                                    <option>transport boxes</option>
+                                </select>
+                                <label style="margin-left: 20px;" for="pwd">No of items:</label>
+                                <input style="margin-left: 20px;" type="text" class="form-control" name="no_item" id="no_item">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <button id="add_button" style="border-radius: 50px;margin-left: 20px;" class="btn_add"><i
+                                    class="fa fa-plus">
+                            </i></button>
+                            <button id="remove_button" style="border-radius: 50px;margin-left: 20px;"
+                                    class="btn_remove"><i
+                                    class="fa fa-minus">
+                            </i></button>
+                        </div>
+                    </div>
+
+                    <script>
+                        $(function () {
+                            $('#add_button').click(function (e) {
+                                e.preventDefault();
+                                var newDiv = $('#items').clone()
+
+                                $('#equip').append(newDiv);
+                            });
+                        });
+                        $(function () {
+                            $('#remove_button').click(function (e) {
+                                e.preventDefault();
+                                $("#items").remove();
+                            });
+                        });
+                    </script>
+
+                    <script>
+                        $(function () {
+                            $('#add_button_midway').click(function (e) {
+                                e.preventDefault();
+                                var newDiv = $('#point').clone()
+
+                                $('#midway').append(newDiv);
+                            });
+                        });
+                        $(function () {
+                            $('#remove_button_midway').click(function (e) {
+                                e.preventDefault();
+                                $("#point").remove();
+                            });
+                        });
+                    </script>
+
+                    <button style="margin-top: 50px;border: solid 2px #1c66de;" type="submit" class="btn btn-default">
+                        Submit
+                    </button>
+                    <button style="margin-top: 50px;border: solid 2px #1c66de;" type="reset" class="btn btn-default">
+                        Cancel
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</section>
+
+<!-- Footer Area End -->
+
+<!-- **** All JS Files ***** -->
+<!-- jQuery 2.2.4 -->
+<script src="js/jquery.min.js"></script>
+<!-- Popper -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- All Plugins -->
+<script src="js/hami.bundle.js"></script>
+<!-- Active -->
+<script src="js/default-assets/active.js"></script>
+
+</body>
+
+</html>

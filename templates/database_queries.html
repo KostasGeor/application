@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Delaer Tool - Database Queries</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./img/core-img/favicon.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styling.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='general_styles_alllls.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navigation_styling.css') }}">
+
+</head>
+
+<body>
+
+<header class="header-area">
+    <!-- Top Header Area Start -->
+    <div class="top-header-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <div class="top-header-content" style="margin-left: -20px;">
+                        <img src="../static/img/logo.png">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="top-header-content">
+                        <img style="width: 300px;" src="../static/img/banner-horizontal-white300ppi.png">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Top Header Area End -->
+
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off" style="background-color: #1c66de">
+            <div class="container">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="hamiNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="index.html"><img src="./img/core-img/logo.png" alt=""></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+                        <!-- Menu Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul id="nav">
+                                <li><a href="{{ url_for('hello_world') }}">Home</a></li>
+                                <li><a href="{{ url_for('management') }}">Mission Management</a></li>
+                                <li><a href="{{ url_for('flightmap') }}">Flight Map</a></li>
+                                <li><a href="{{ url_for('graphs') }}">Graphs & Statistics</a></li>
+                                <li class="active"><a href="{{ url_for('dbqueries') }}">Database Queries</a></li>
+                                <li><a href="{{ url_for('mltool') }}">Machine Learning Tool</a></li>
+                                <li><a href="{{ url_for('reports') }}">Reports</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Area End -->
+<!-- Coming Soon Area Start -->
+<section class="hami-blog-details-area section-padding-80-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="post-content">
+                    <div class="post-meta">
+                        <a href="{{ url_for('hello_world') }}" class="post-date">Under Construction...</a>
+                    </div>
+                    <h2 class="post-title">Instant Queries to the Database for Data Retrieval Coming Soon!</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 offset-4">
+                    <img src="../static/img/gears.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Coming Soon Area End -->
+
+
+<!-- **** All JS Files ***** -->
+<!-- jQuery 2.2.4 -->
+<script src="js/jquery.min.js"></script>
+<!-- Popper -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- All Plugins -->
+<script src="js/hami.bundle.js"></script>
+<!-- Active -->
+<script src="js/default-assets/active.js"></script>
+
+</body>
+
+</html>

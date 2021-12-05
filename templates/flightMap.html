@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Delaer Tool - Flight Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+    <style>
+        #map {
+            height: 300px;
+            width: 200px
+        }
+    </style>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styling.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='general_styles_alllls.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navigation_styling.css') }}">
+
+</head>
+<body style="background-color: #1c66de">
+<!-- Preloader -->
+
+<!-- /Preloader -->
+
+<!-- Header Area Start -->
+<header class="header-area">
+    <!-- Top Header Area Start -->
+    <div class="top-header-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <div class="top-header-content" style="margin-left: -20px;">
+                        <img src="../static/img/logo.png">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="top-header-content">
+                        <img style="width: 300px;" src="../static/img/banner-horizontal-white300ppi.png">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Top Header Area End -->
+
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off" style="background-color: #1c66de">
+            <div class="container">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="hamiNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="index.html"><img src="./img/core-img/logo.png" alt=""></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+                        <!-- Menu Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul id="nav">
+                                <li><a href="{{ url_for('hello_world') }}">Home</a></li>
+                                <li><a href="{{ url_for('management') }}">Mission Management</a></li>
+                                <li class="active"><a href="{{ url_for('flightmap') }}">Flight Map</a></li>
+                                <li><a href="{{ url_for('graphs') }}">Graphs & Statistics</a></li>
+                                <li><a href="{{ url_for('dbqueries') }}">Database Queries</a></li>
+                                <li><a href="{{ url_for('mltool') }}">Machine Learning Tool</a></li>
+                                <li><a href="{{ url_for('reports') }}">Reports</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Area End -->
+
+<!-- Features Area Start -->
+<div class="hami-features-area bg-gray section-padding-100">
+    <div class="container">
+        <div class="row">
+            <div id="map" class="col-sm-6 col-6 col-md-6 col-xl-6 col-lg-6"></div>
+            <div class="col-sm-6 col-6 col-md-6 col-xl-6 col-lg-6">
+                <form id="mission_id" action="/api/getMissionCoords" method="POST">
+                    <div class="form-group">
+                        <label for="email">Mission ID:</label>
+                        <input name="mission_id" type="text" class="form-control" id="mission_id">
+                    </div>
+                    <button style="margin-top: 50px;border: solid 2px #1c66de;" type="submit" class="btn btn-default">
+                        Submit
+                    </button>
+                </form>
+            </div>
+            <script>
+
+                // initialize the map
+                var mymap = L.map('map').setView([39.122390, 22.775565], 6);
+
+                // load a tile layer
+                var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+                mymap.addLayer(layer);
+
+
+                var coordinates = {{ data }}
+                var coordinates2 = {{ data2 }}
+
+                if (coordinates != null) {
+                    for (i = 0; i < coordinates.length; i++) {
+                        console.log(coordinates[i][0],coordinates[i][1])
+                        var marker = L.marker([coordinates[i][1], coordinates[i][0]]).addTo(mymap);
+                        var popup = L.popup().setContent(coordinates[i][2] + 'Speed' + coordinates[i][3] + 'Height');
+                                marker.bindPopup(popup);
+                    }
+                }
+                if (coordinates2 != null) {
+                    for (i = 0; i < coordinates2.length; i++) {
+                        console.log(coordinates2[i][0],coordinates2[i][1])
+                        var marker = L.marker([coordinates2[i][0], coordinates2[i][1]]).addTo(mymap);
+                    }
+                }
+            </script>
+        </div>
+    </div>
+
+    <!-- Feature Pattern -->
+    <div class="feature-pattern">
+        <img src="img/core-img/welcome-pattern.png" alt="">
+    </div>
+</div>
+<!-- Features Area End -->
+
+
+<!-- Footer Area Start -->
+<footer class="footer-area" style="padding-bottom: 0;border-top: solid 2px black;">
+
+    <!-- Bottom Footer Area -->
+    <div class="bottom-footer-area bg-gray">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6">
+                    <!-- Copywrite Text -->
+                    <div class="copywrite-text">
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                                                                aria-hidden="true"></i> by <a
+                                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Area End -->
+
+<!-- **** All JS Files ***** -->
+<!-- jQuery 2.2.4 -->
+<script src="js/jquery.min.js"></script>
+<!-- Popper -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- All Plugins -->
+<script src="js/hami.bundle.js"></script>
+<!-- Active -->
+<script src="js/default-assets/active.js"></script>
+
+</body>
+
+</html>
